@@ -24,7 +24,7 @@
 #ifndef INCLUDE_SIMINF_SOLVER_AEM_H
 #define INCLUDE_SIMINF_SOLVER_AEM_H
 
-#include "solvers/SimInf_solver.h"
+#include "../SimInf_solver.h"
 
 /* Declaration of the function to initialize and run the siminf solver */
 int SimInf_run_solver_aem(SimInf_solver_args *args);

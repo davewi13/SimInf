@@ -24,7 +24,7 @@
 #ifndef INCLUDE_SIMINF_SOLVER_SSM_H
 #define INCLUDE_SIMINF_SOLVER_SSM_H
 
-#include "solvers/SimInf_solver.h"
+#include "../SimInf_solver.h"
 
 /* Declaration of the function to initialize and run the SimInf ssm
  * solver */
