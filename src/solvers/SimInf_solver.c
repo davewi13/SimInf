@@ -31,7 +31,7 @@
 #endif
 
 #include "SimInf.h"
-#include "SimInf_solver.h"
+#include "solvers/SimInf_solver.h"
 
 /**
  * Sample individuals from a node
