@@ -1,3 +1,25 @@
 PKG_CPPFLAGS = -I.
-PKG_CFLAGS = -O2 -Wall
-PKG_CXXFLAGS = -O2 -Wall
+
+SOURCES = \
+    SimInf.c \
+    init.c \
+    misc/binheap.c \
+    misc/SimInf_arg.c \
+    misc/SimInf_forward_euler_linear_decay.c \
+    misc/SimInf_ldata.c \
+    misc/SimInf_local_spread.c \
+    misc/SimInf_openmp.c \
+    misc/SimInf_trajectory.c \
+    models/SEIR.c \
+    models/SIR.c \
+    models/SISe.c \
+    models/SISe_sp.c \
+    models/SISe3.c \
+    models/SISe3_sp.c \
+    solvers/SimInf_solver.c \
+    solvers/aem/SimInf_solver_aem.c \
+    solvers/ssm/SimInf_solver_ssm.c
+
+OBJECTS = $(SOURCES:.c=.o)
+
+PKG_LIBS =
