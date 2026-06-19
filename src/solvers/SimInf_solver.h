@@ -26,7 +26,7 @@
 
 #include <gsl/gsl_rng.h>
 
-#include "misc/kvec.h"
+#include "../misc/kvec.h"
 #include "SimInf.h"
 
 /**
