@@ -1,4 +1,4 @@
-PKG_CPPFLAGS = -I.
+PKG_CPPFLAGS = -I. -Imisc
 
 SOURCES = \
     SimInf.c \
