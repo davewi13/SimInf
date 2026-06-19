@@ -1,4 +1,4 @@
-PKG_CPPFLAGS = -I$(srcdir)
+PKG_CPPFLAGS = -I$(srcdir) -I$(srcdir)/misc -I$(srcdir)/solvers
 PKG_CFLAGS = -O2 -Wall
 PKG_CXXFLAGS = -O2 -Wall
 PKG_CPPFLAGS = -DDEBUG_BUILD
