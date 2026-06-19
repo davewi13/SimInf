@@ -1,0 +1,2 @@
+PKG_CFLAGS = -O2 -Wall
+PKG_CXXFLAGS = -O2 -Wall
