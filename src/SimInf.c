@@ -46,7 +46,7 @@ SEXP SimInf_run(
     TRFun *tr_fun,
     PTSFun pts_fun)
 {
-    int error = 0, nprotect = 0;
+    int err = 0, nprotect = 0;
     SEXP result = R_NilValue;
     SEXP ext_events, E, G, N, S, prS;
     SEXP tspan;
@@ -62,19 +62,19 @@ SEXP SimInf_run(
     const double ldata_tmp[1] = {INFINITY};
 
     if (SimInf_arg_check_model(model)) {
-        error = SIMINF_ERR_INVALID_MODEL;
+        err = SIMINF_ERR_INVALID_MODEL;
         goto cleanup;
     }
 
     /* Check solver argument */
     if (!Rf_isNull(solver)) {
         if (!Rf_isString(solver)) {
-            error = SIMINF_ERR_UNKNOWN_SOLVER;
+            err = SIMINF_ERR_UNKNOWN_SOLVER;
             goto cleanup;
         }
 
         if (Rf_length(solver) != 1 || STRING_ELT(solver, 0) == NA_STRING) {
-            error = SIMINF_ERR_UNKNOWN_SOLVER;
+            err = SIMINF_ERR_UNKNOWN_SOLVER;
             goto cleanup;
         }
     }
@@ -187,15 +187,15 @@ SEXP SimInf_run(
 
     /* Run the simulation solver. */
     if (Rf_isNull(solver) || (strcmp(CHAR(STRING_ELT(solver, 0)), "ssm") == 0))
-        error = SimInf_run_solver_ssm(&args);
+        err = SimInf_run_solver_ssm(&args);
     else if (strcmp(CHAR(STRING_ELT(solver, 0)), "aem") == 0)
-        error = SimInf_run_solver_aem(&args);
+        err = SimInf_run_solver_aem(&args);
     else
-        error = SIMINF_ERR_UNKNOWN_SOLVER;
+        err = SIMINF_ERR_UNKNOWN_SOLVER;
 
 cleanup:
-    if (error) {
-        switch (error) {
+    if (err) {
+        switch (err) {
         case SIMINF_ERR_NEGATIVE_STATE:
             Rf_error("Negative state detected.");
             break;
@@ -242,7 +242,7 @@ cleanup:
             Rf_error("'shift' is out of bounds.");
             break;
         default:
-            Rf_error("Unknown error code: %i.", error);
+            Rf_error("Unknown error code: %i.", err);
             break;
         }
     }
