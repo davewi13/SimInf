@@ -1,4 +1,5 @@
 PKG_CPPFLAGS = -I. -Imisc
+PKG_LIBS = -lgsl -lgslcblas
 
 SOURCES = \
     SimInf.c \
